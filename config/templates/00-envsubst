@@ -19,6 +19,8 @@ sudo mkdir $MAIN_DIR_DATA
 sudo mkdir $DIR_HTML
 sudo mkdir $DIR_DATA
 sudo mkdir $DIR_DATABASE
+sudo mkdir $DIR_DATABASE_INIT
+sudo mkdir $DIR_BACKUP
 
 cd $MAIN_DIR_DATA
 sudo chown www-data html/
