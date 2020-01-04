@@ -1,0 +1,28 @@
+#!/bin/bash
+#--------------------------
+# project specific substitution commands
+
+rm -rf ../docker-compose.yml
+envsubst < "templates/docker-compose.yml" > "../docker-compose.yml"
+
+mkdir owncloud
+rm -rf owncloud/config.php
+envsubst < "templates/config.php" > "owncloud/config.php"
+
+rm -rf ../backup_db
+envsubst < "templates/backup_db" > "../backup_db"
+chmod 755 ../backup_db
+
+cd ..
+
+sudo mkdir $MAIN_DIR_DATA
+sudo mkdir $DIR_HTML
+sudo mkdir $DIR_DATA
+sudo mkdir $DIR_DATABASE
+
+cd $MAIN_DIR_DATA
+sudo chown www-data html/
+sudo chown www-data data/
+sudo chown 999 database/
+
+

@@ -1,0 +1,50 @@
+#!/bin/bash 
+#---------------------------------------------
+# copy file and remove "sample." in the name
+# make changes for your environment
+#---------------------------------------------
+
+export CURRENT_STAGE="prod"
+export IS_TEST="False"
+
+# Ports
+export CLIENT_PORT_HTTP=80
+export CLIENT_PORT_HTTPS=443
+
+# DATABASE
+export DATABASE_PORT=3306
+export DATABASE_NAME="owncloud"
+export DATABASE_PWD="1234567890"
+
+# URL
+export SERVER_IP4="192.168.1.10"
+export SERVER_URL="localhost"
+
+# Docker container names
+export DOCKER_CLIENT="owncloud-$CURRENT_STAGE"
+export DOCKER_DATABASE="oc-mariadb-$CURRENT_STAGE"
+
+# Directories
+export MAIN_DIR="/projects/test/owncloud"
+export MAIN_DIR_DATA="$MAIN_DIR/oc-data"
+export DIR_DATABASE="$MAIN_DIR_DATA/database"
+export DIR_DATABASE_INIT="$MAIN_DIR_DATA/database-init"
+export DIR_HTML="$MAIN_DIR_DATA/html"
+export DIR_BACKUP="$MAIN_DIR_DATA/backup"
+export DIR_DATA="/media/usb/owncloud-$CURRENT_STAGE"
+
+# usb-drive-sleep
+export DIR_SLEEP_CONFIG="../usb-drive-sleep/owncloud"
+export DIR_SLEEP_STATUS="../usb-drive-sleep"
+
+# Images Database
+export DOCKERIMAGE_DATABASE="blepiolot/rpi-mariadb:latest"
+
+# Image Owncloud: see https://owncloud.org/download/ to change version and SHA256
+export DOCKERIMAGE_OC_VERSION="10.3.2"
+export DOCKERIMAGE_OC_SHA256="0af4429bd477b4d9f829c9a69b47bb855d22c4a36de7d3e402f3852c33223c33"
+
+#---------------------------------------------
+export THIS_IS_THE_PROJECT_TEMPLATE="Please edit not here, but the orginial configuration file. This files is created using a template."
+export DOLLAR="$"
+export D="$"

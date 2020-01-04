@@ -1,0 +1,34 @@
+#!/bin/bash
+#------------------------------------------------
+# Backup von MSQL-Datenbanken aus Container heraus machen
+# Zu starken über crontab / Backup-Script
+
+
+# Variablen aus Config PROD/DEV
+#--------------------------------
+backup_dir="${DIR_BACKUP}"
+backup_db="${DATABASE_NAME}"
+
+sql_container="${DOCKER_DATABASE}"
+sql_pwd="${DATABASE_PWD}"
+sql_root="root"
+
+recovery_dir="${DIR_DATABASE_INIT}"
+version="oc-v${DOCKERIMAGE_OC_VERSION}"
+file_config="${DIR_HTML}/config/config.php"
+
+# Dateinamen zusammensetzen
+#--------------------------------
+date=`date +%y%m%d-%H%M`
+backup_file="${D}backup_dir/docker_${D}sql_container""-${D}version""_${D}backup_db""_${D}date.sql"
+backup_latest="${D}recovery_dir/owncloud_${D}version""_latest.sql"
+backup_config="${D}backup_dir/config_${D}version_${D}date.php"
+
+
+# mySQL Dump aus Container erzeugen und in Datei schreiben, 
+# Kopie in Verzeichnis für Container-Initialisierung
+#--------------------------------
+/usr/bin/docker exec --user=mysql ${D}sql_container /usr/bin/mysqldump -hlocalhost -P3306 -u${D}sql_root -p${D}sql_pwd -B ${D}backup_db > ${D}backup_file
+cp ${D}backup_file ${D}backup_latest
+cp ${D}file_config ${D}backup_config
+

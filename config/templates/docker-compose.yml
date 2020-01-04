@@ -1,0 +1,59 @@
+# ownCloud with MariaDB/MySQL 
+# -------------------------------
+# ${THIS_IS_THE_PROJECT_TEMPLATE}
+# -------------------------------
+
+version: "3"
+services:
+
+# -------------------------------
+# owncloud ${DOCKERIMAGE_OC_VERSION}
+# -------------------------------
+# see config/container/Dockerfile for more information
+# -------------------------------
+
+  owncloud:
+
+    build: 
+      context: config/container
+      args:
+        - OWNCLOUD_VERSION=${DOCKERIMAGE_OC_VERSION}
+        - OWNCLOUD_SHA256=${DOCKERIMAGE_OC_SHA256}
+
+    container_name: ${DOCKER_CLIENT}
+
+    ports:
+      - ${CLIENT_PORT_HTTP}:80
+      - ${CLIENT_PORT_HTTPS}:443
+
+    volumes:
+      - ${DIR_DATA}:/var/www/html/data
+      - ${DIR_HTML}:/var/www/html
+      - ${DIR_SLEEP_CONFIG}/index.php:/var/www/html/index.php
+      - ${DIR_SLEEP_CONFIG}/remote.php:/var/www/html/remote.php
+      - ${DIR_SLEEP_CONFIG}/add-on.php:/var/www/html/add-on.php
+      - ${DIR_SLEEP_STATUS}/status.txt:/var/www/html/status.txt
+      - ${DIR_SLEEP_STATUS}/status_power.txt:/var/www/html/status_power.txt
+
+    depends_on:
+      - mysql
+
+# -------------------------------
+# MariaDB for raspberry
+# -------------------------------
+# source: https://ssi.le-piolot.fr/running-owncloud-w-ssl-in-a-raspberry-pi-docker-container/
+# -------------------------------
+
+
+  mysql:
+
+    image: ${DOCKERIMAGE_DATABASE}
+    container_name: ${DOCKER_DATABASE}
+
+    volumes:
+      - ${DIR_DATABASE}:/var/lib/mysql
+      - ${DIR_DATABASE_INIT}:/database-init
+      - ${DIR_BACKUP}:/backup
+
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DATABASE_PWD}
