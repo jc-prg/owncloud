@@ -39,7 +39,7 @@ restore() {
 	if [ -f ${D}backup_latest ]; then
 		/usr/bin/docker exec --user=mysql ${D}sql_container /usr/bin/mysqldump -hlocalhost -P3306 -u${D}sql_root -p${D}sql_pwd ${D}backup_db < ${D}backup_latest
 	else
-		printf("No backup file available (${D}backup_latest)!"
+		printf("No backup file available (${D}backup_latest)!")
 	fi
 	}
 	
