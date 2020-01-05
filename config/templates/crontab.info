@@ -1,0 +1,14 @@
+#------------------------------------------------------------------
+# jc://cloud/ ${CURRENT_STAGE}
+#------------------------------------------------------------------
+# start owncloud services via crontab -> add via "crontab -e"
+#------------------------------------------------------------------
+
+# backup owncloud database once a day
+05 10 * * * $MAIN_DIR/maintain/backup_mysql &
+
+# execute owncloud cron service
+0,15,30,45 9-23 * * * /usr/bin/docker exec -i -u www-data ${DOCKER_CLIENT} php -f /var/www/html/cron.php
+
+# start required containers on start-up
+@reboot /usr/local/bin/docker-compose -f $MAIN_DIR/docker-compose.yml up -d

@@ -9,9 +9,13 @@ mkdir owncloud
 rm -rf owncloud/config.php
 envsubst < "templates/config.php" > "owncloud/config.php"
 
-rm -rf ../backup_db
-envsubst < "templates/backup_db" > "../backup_db"
+mkdir ../maintain
+rm -rf ../maintain/backup_db
+envsubst < "templates/backup_db" > "../maintain/backup_db"
 chmod 755 ../backup_db
+
+rm -rf ../maintain/crontab.info
+envsubst < "templates/crontab.info" > "../maintain/crontab.info"
 
 cd ..
 
