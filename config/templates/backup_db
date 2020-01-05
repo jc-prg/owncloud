@@ -39,7 +39,7 @@ restore() {
 	if [ -f ${D}backup_latest ]; then
 		/usr/bin/docker exec --user=mysql ${D}sql_container /usr/bin/mysqldump -hlocalhost -P3306 -u${D}sql_root -p${D}sql_pwd ${D}backup_db < ${D}backup_latest
 	else
-		printf("No backup file available (${D}backup_latest)!")
+		printf "No backup file available (${D}backup_latest)!"
 	fi
 	}
 	
@@ -68,11 +68,11 @@ if [ ! ${D}1 ]; then
     if [[ ${D}k = q ]] ; then
        printf "\nQuitting from the program.\n"
        exit 0
-    elif [[ ${D} = b ]] ; then
+    elif [[ ${D}k = b ]] ; then
        printf "\nCreate sql dump as backup ...\n"
        param="backup"
        break
-    elif [[ ${D} = r ]] ; then
+    elif [[ ${D}k = r ]] ; then
        printf "\nRestore sql dump to database ...\n"
        param="restore"
        break
@@ -84,12 +84,12 @@ if [ ! ${D}1 ]; then
   done
 fi
 
-if   [ ${D}1 = "backup"]; then
+if   [ ${D}param = "backup" ]; then
   backup
-elif [ ${D}1 = "restore"]; then
+elif [ ${D}param = "restore" ]; then
   restore
 else
-  printf("Parameter unknown!")
+  printf "Parameter unknown!"
 fi
 
 echo
