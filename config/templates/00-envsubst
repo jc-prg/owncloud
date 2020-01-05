@@ -12,7 +12,7 @@ envsubst < "templates/config.php" > "owncloud/config.php"
 mkdir ../maintain
 rm -rf ../maintain/backup_db
 envsubst < "templates/backup_db" > "../maintain/backup_db"
-chmod 755 ../backup_db
+chmod 755 ../maintain/backup_db
 
 rm -rf ../maintain/crontab.info
 envsubst < "templates/crontab.info" > "../maintain/crontab.info"
