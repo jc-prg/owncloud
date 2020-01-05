@@ -8,7 +8,8 @@
 05 10 * * * $MAIN_DIR/maintain/backup_mysql &
 
 # execute owncloud cron service
-0,15,30,45 9-23 * * * /usr/bin/docker exec -i -u www-data ${DOCKER_CLIENT} php -f /var/www/html/cron.php
+0,15,30,45 9-23 * * * /usr/bin/docker exec -i -u www-data ${DOCKER_CLIENT} php -f /var/www/html/occ system:cron
 
 # start required containers on start-up
+@reboot mount /dev/sda1 /media/usb
 @reboot /usr/local/bin/docker-compose -f $MAIN_DIR/docker-compose.yml up -d
