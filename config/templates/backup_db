@@ -24,6 +24,9 @@ backup_file="${D}backup_dir/docker_${D}sql_container""-${D}version""_${D}backup_
 backup_latest="${D}recovery_dir/owncloud_${D}version""_latest.sql"
 backup_config="${D}backup_dir/config_${D}version_${D}date.php"
 
+backup_import1="/database-init/owncloud_${D}version""_latest.sql"
+backup_import2="/database-init/import"
+
 
 # create mySQL dump from database in container
 #--------------------------------
@@ -37,7 +40,10 @@ backup() {
 #--------------------------------
 restore() {
 	if [ -f ${D}backup_latest ]; then
-		/usr/bin/docker exec --user=mysql ${D}sql_container /usr/bin/mysqldump -hlocalhost -P3306 -u${D}sql_root -p${D}sql_pwd ${D}backup_db < ${D}backup_latest
+                echo "#!/bin/bash" > ${D}recovery_dir/import
+                echo "/usr/bin/mysql -hlocalhost -P3306 -u${D}sql_root -p${D}sql_pwd < ${D}backup_import1" >> ${D}recovery_dir/import
+                chmod 755 ${D}recovery_dir/import
+                /usr/bin/docker exec --user=mysql ${D}sql_container ${D}backup_import2
 	else
 		printf "No backup file available (${D}backup_latest)!"
 	fi
