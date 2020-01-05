@@ -21,8 +21,8 @@ export SERVER_IP4="192.168.1.10"
 export SERVER_URL="localhost"
 
 # Docker container names
-export DOCKER_CLIENT="owncloud-$CURRENT_STAGE"
-export DOCKER_DATABASE="oc-mariadb-$CURRENT_STAGE"
+export DOCKER_CLIENT="owncloud_$CURRENT_STAGE"
+export DOCKER_DATABASE="oc_mariadb_$CURRENT_STAGE"
 
 # usb-device for RPI (to be mounted)
 export EXTERNAL_DRIVE="/dev/sda1"	# leave empty, if not used

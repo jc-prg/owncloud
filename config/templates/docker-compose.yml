@@ -12,7 +12,7 @@ services:
 # see config/container/Dockerfile for more information
 # -------------------------------
 
-  owncloud:
+  ${DOCKER_CLIENT}:
 
     build: 
       context: config/container
@@ -31,7 +31,7 @@ services:
       - ${DIR_HTML}:/var/www/html
 
     depends_on:
-      - mysql
+      - ${DOCKER_DATABASE}
 
 # -------------------------------
 # MariaDB for raspberry
@@ -40,7 +40,7 @@ services:
 # -------------------------------
 
 
-  mysql:
+  ${DOCKER_DATABASE}:
 
     image: ${DOCKERIMAGE_DATABASE}
     container_name: ${DOCKER_DATABASE}
