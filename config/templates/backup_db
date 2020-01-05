@@ -4,7 +4,7 @@
 # Zu starken über crontab / Backup-Script
 
 
-# Variablen aus Config PROD/DEV
+# Vars from config file
 #--------------------------------
 backup_dir="${DIR_BACKUP}"
 backup_db="${DATABASE_NAME}"
@@ -17,7 +17,7 @@ recovery_dir="${DIR_DATABASE_INIT}"
 version="oc-v${DOCKERIMAGE_OC_VERSION}"
 file_config="${DIR_HTML}/config/config.php"
 
-# Dateinamen zusammensetzen
+# create file names
 #--------------------------------
 date=`date +%y%m%d-%H%M`
 backup_file="${D}backup_dir/docker_${D}sql_container""-${D}version""_${D}backup_db""_${D}date.sql"
@@ -25,10 +25,74 @@ backup_latest="${D}recovery_dir/owncloud_${D}version""_latest.sql"
 backup_config="${D}backup_dir/config_${D}version_${D}date.php"
 
 
-# mySQL Dump aus Container erzeugen und in Datei schreiben, 
-# Kopie in Verzeichnis für Container-Initialisierung
+# create mySQL dump from database in container
 #--------------------------------
-/usr/bin/docker exec --user=mysql ${D}sql_container /usr/bin/mysqldump -hlocalhost -P3306 -u${D}sql_root -p${D}sql_pwd -B ${D}backup_db > ${D}backup_file
-cp ${D}backup_file ${D}backup_latest
-cp ${D}file_config ${D}backup_config
+backup() {
+	/usr/bin/docker exec --user=mysql ${D}sql_container /usr/bin/mysqldump -hlocalhost -P3306 -u${D}sql_root -p${D}sql_pwd -B ${D}backup_db > ${D}backup_file
+	cp ${D}backup_file ${D}backup_latest
+	cp ${D}file_config ${D}backup_config
+	}
+	
+# restore mySQL database in container from dump
+#--------------------------------
+restore() {
+	if [ -f ${D}backup_latest ]; then
+		/usr/bin/docker exec --user=mysql ${D}sql_container /usr/bin/mysqldump -hlocalhost -P3306 -u${D}sql_root -p${D}sql_pwd ${D}backup_db < ${D}backup_latest
+	else
+		printf("No backup file available (${D}backup_latest)!"
+	fi
+	}
+	
+
+# menu and execution
+#--------------------------
+
+echo
+echo "-------------------------------------"
+echo " jc://cloud/ backup & restore"
+echo " (by Christoph Kloth)"
+echo "-------------------------------------"
+
+param=${D}1
+
+if [ ! ${D}1 ]; then
+  echo
+  echo "Press key - your options:"
+  echo " 'q' - exit"
+  echo " 'b' - backup"
+  echo " 'r' - restore"
+
+  count=0
+  while : ; do
+    read -n 1 k <&1
+    if [[ ${D}k = q ]] ; then
+       printf "\nQuitting from the program.\n"
+       exit 0
+    elif [[ ${D} = b ]] ; then
+       printf "\nCreate sql dump as backup ...\n"
+       param="backup"
+       break
+    elif [[ ${D} = r ]] ; then
+       printf "\nRestore sql dump to database ...\n"
+       param="restore"
+       break
+    else
+       ((count=${D}count+1))
+       printf "\nIterate for $count times\n"
+       echo "Press 'q' to exit"
+    fi
+  done
+fi
+
+if   [ ${D}1 = "backup"]; then
+  backup
+elif [ ${D}1 = "restore"]; then
+  restore
+else
+  printf("Parameter unknown!")
+fi
+
+echo
+echo "Done."
+echo
 
