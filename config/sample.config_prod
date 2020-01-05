@@ -29,7 +29,7 @@ export EXTERNAL_DRIVE="/dev/sda1"	# leave empty, if not used
 export EXTERNAL_MOUNT="/media/usb"
 
 # Directories
-export MAIN_DIR="/projects/test/owncloud"
+export MAIN_DIR="/projects/$CURRENT_STAGE/owncloud"
 export MAIN_DIR_DATA="$MAIN_DIR/oc-data"
 export DIR_DATABASE="$MAIN_DIR_DATA/database"
 export DIR_DATABASE_INIT="$MAIN_DIR_DATA/database-init"
