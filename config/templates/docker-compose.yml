@@ -29,11 +29,6 @@ services:
     volumes:
       - ${DIR_DATA}:/var/www/html/data
       - ${DIR_HTML}:/var/www/html
- #     - ${DIR_SLEEP_CONFIG}/index.php:/var/www/html/index.php
- #     - ${DIR_SLEEP_CONFIG}/remote.php:/var/www/html/remote.php
- #     - ${DIR_SLEEP_CONFIG}/add-on.php:/var/www/html/add-on.php
- #     - ${DIR_SLEEP_STATUS}/status.txt:/var/www/html/status.txt
- #     - ${DIR_SLEEP_STATUS}/status_power.txt:/var/www/html/status_power.txt
 
     depends_on:
       - mysql

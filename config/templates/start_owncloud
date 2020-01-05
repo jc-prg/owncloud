@@ -1,0 +1,17 @@
+#!/bin/bash
+
+external="${EXTERNAL_DRIVE}"
+mountpoint="${EXTERNAL_MOUNT}"
+
+echo
+echo "-------------------------------------"
+echo " Start jc://cloud/${MBOX_ACTIVE_STAGE}/"
+echo " (by Christoph Kloth)"
+echo "-------------------------------------"
+
+
+${DOCKERCOMPOSE_DIR}/docker-compose -f ${MAIN_DIR}/docker-compose.yml up -d
+
+if [ ${D}external != "" ] ; then
+  mount ${D}external ${D}mountpoint
+fi

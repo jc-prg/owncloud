@@ -33,10 +33,6 @@ export DIR_HTML="$MAIN_DIR_DATA/html"
 export DIR_BACKUP="$MAIN_DIR_DATA/backup"
 export DIR_DATA="/media/usb/owncloud-$CURRENT_STAGE"
 
-# usb-drive-sleep
-export DIR_SLEEP_CONFIG="../usb-drive-sleep/owncloud"
-export DIR_SLEEP_STATUS="../usb-drive-sleep"
-
 # Images Database
 export DOCKERIMAGE_DATABASE="blepiolot/rpi-mariadb:latest"
 
