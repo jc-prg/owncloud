@@ -22,7 +22,7 @@
 #body-user #header,
 #body-settings #header,
 #body-public #header {
-	background-color: #745bca;
+	background-color: #000066;
 }
 
 /* log in screen background color */
@@ -58,8 +58,8 @@ input[type="submit"].primary:active,
 input[type="button"].primary:active,
 button.primary:active,
 .button.primary:active {
-	border-color: #745bca;
-	background-color: #947bea;
+	border-color: #000066;
+	background-color: #3300CC;
 }
 .primary:hover,
 input[type="submit"].primary:hover,
