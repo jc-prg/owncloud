@@ -82,12 +82,14 @@ button.primary:focus,
 
 /* use logos from theme */
 #header .logo {
-	background-image: url('../img/logo.svg');
+	//background-image: url('../img/logo.svg');
+	background-image: url('../img/oc_logo_gray.png');
 	width: 250px;
 	height: 121px;
 }
 #header .logo-icon {
-	background-image: url('../img/logo-icon.svg');
+	//background-image: url('../img/logo.svg');
+	background-image: url('../img/oc_logo_white.png');
 	height: 34px;
 	line-height: initial;
 }
