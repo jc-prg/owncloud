@@ -83,7 +83,7 @@ button.primary:focus,
 /* use logos from theme */
 #header .logo {
 	//background-image: url('../img/logo.svg');
-	background-image: url('../img/oc_logo_gray.png');
+	background-image: url('../img/oc_logo_white.png');
 	width: 250px;
 	height: 121px;
 }
