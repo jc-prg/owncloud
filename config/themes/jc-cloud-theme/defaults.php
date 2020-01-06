@@ -25,7 +25,7 @@ class OC_Theme {
 	 * @return string URL
 	 */
 	public function getBaseUrl() {
-		return 'https://owncloud.org';
+		return 'https://cloud.jean-claude.de';
 	}
 
 	/**
@@ -142,7 +142,7 @@ class OC_Theme {
 	 */
 	public function getShortFooter() {
 		$l10n = $this->getL10n();
-		$footer = '© 2018 <a href="'.$this->getBaseUrl().'" target="_blank\">'.$this->getEntity().'</a>'.
+		$footer = '© 2020 <a href="'.$this->getBaseUrl().'" target="_blank\">'.$this->getEntity().'</a>'.
 			'<br/>' . $this->getSlogan();
 		if ($this->getImprintUrl() !== '') {
 			$footer .= '<span class="nowrap"> | <a href="' . $this->getImprintUrl() . '" target="_blank">' . $l10n->t('Imprint') . '</a></span>';
