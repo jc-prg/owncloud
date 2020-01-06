@@ -8,6 +8,13 @@ My configuration to run an up-to-date owncloud on RPI ...
 
 If you want to use this, please check exactly if it helps for your purpose. No guarantee!
 
+## Thanks to ...
+
+This configuration is based on:
+
+* [blepiolot/rpi-mariadb](https://ssi.le-piolot.fr/running-owncloud-w-ssl-in-a-raspberry-pi-docker-container/)
+* https://github.com/docker-library/owncloud
+
 ## Setup
 
 * Clone this repository
