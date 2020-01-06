@@ -23,6 +23,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		libxml2-dev \
 		unzip \
 	&& rm -rf /var/lib/apt/lists/*
+	
+RUN apt-get install -y sendmail
 
 # https://doc.owncloud.org/server/8.1/admin_manual/installation/source_installation.html#prerequisites
 RUN set -ex; \
