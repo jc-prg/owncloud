@@ -10,8 +10,11 @@ echo " (by Christoph Kloth)"
 echo "-------------------------------------"
 
 
-${DOCKERCOMPOSE_DIR}/docker-compose -f ${MAIN_DIR}/docker-compose.yml up -d
-
 if [ ${D}external != "" ] ; then
   mount ${D}external ${D}mountpoint
 fi
+
+${DOCKERCOMPOSE_DIR}/docker-compose -f ${MAIN_DIR}/docker-compose.yml up -d
+
+echo
+echo "Done."
