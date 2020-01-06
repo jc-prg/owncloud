@@ -29,6 +29,7 @@ services:
     volumes:
       - ${DIR_DATA}:/var/www/html/data
       - ${DIR_HTML}:/var/www/html
+      - ${MAIN_DIR}/config/php-info:/var/www/html/info
 
     depends_on:
       - ${DOCKER_DATABASE}

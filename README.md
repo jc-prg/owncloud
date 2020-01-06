@@ -31,6 +31,7 @@ $ docker-compose up -d
 * Login via Web Interface (e.g. http://localhost/) and make your configurations
   * define admin login and password
   * select MariaDB as database (user: root, passwort: <what you've selected>, db: owncloud, server: mysql:3306)
+  * install add-ons from Market place (e.g. calendar, gallery, ...)
 
 * additional configurations to be done ...
   * change trusted domains in config/config.php
