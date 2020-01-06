@@ -5,7 +5,7 @@
 #------------------------------------------------------------------
 
 # backup owncloud database once a day
-05 10 * * * $MAIN_DIR/maintain/backup_mysql &
+05 10 * * * $MAIN_DIR/maintain/backup_db backup &
 
 # execute owncloud cron service
 0,15,30,45 9-23 * * * /usr/bin/docker exec -i -u www-data ${DOCKER_CLIENT} php -f /var/www/html/occ system:cron
