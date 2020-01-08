@@ -57,7 +57,7 @@ class OC_Theme {
 	/**
 	 * Returns the URL to Google Play for the Android Client
 	 * @return string URL
-	 */
+		 */
 	public function getAndroidClientUrl() {
 		return 'https://play.google.com/store/apps/details?id=com.owncloud.android';
 	}
@@ -165,7 +165,7 @@ class OC_Theme {
 		${D}footer = '© ${THEME_YEAR} <a href="'.${D}this->getBaseUrl().'" target="_blank\">'.${D}this->getEntity().'</a>'.
 			'<br/>' . $this->getSlogan();
 		if (${D}this->getImprintUrl() !== '') {
-			$footer .= '<span class="nowrap"> | <a href="' . ${D}this->getImprintUrl() . '" target="_blank">' . ${D}l10n->t('Imprint') . '</a></span>';
+			${D}footer .= '<span class="nowrap"> | <a href="' . ${D}this->getImprintUrl() . '" target="_blank">' . ${D}l10n->t('Imprint') . '</a></span>';
 		}
 
 		if (${D}this->getPrivacyPolicyUrl() !== '') {
