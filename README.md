@@ -40,6 +40,26 @@ $ docker-compose up -d
   * define admin login and password
   * select MariaDB as database (user: root, passwort: <what you've selected>, db: owncloud, server: mysql:3306)
   * install add-ons from Market place (e.g. calendar, gallery, ...)
+  
+* add domains to trusted domains in config/config.php if necessary (during first login only 1 domain is added)
+```php  
+  'tusted_domains' => [
+      '192.168.1.10',
+      'example.com',
+  ],
+```
+
+* add jc-cloud-theme if wanted
+  * go to app settings when logged in as admin
+  * go to deactivated apps and activate "jc-cloud-theme"
+  * deactive integrity check in oc-data/html/config/config.php
+
+```php  
+  'integrity.ignore.missing.app.signature' => [
+      'jc-cloud-theme',
+  ],
+```
+  
 
 * additional configurations to be done ...
   * change trusted domains in config/config.php
