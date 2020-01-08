@@ -163,7 +163,7 @@ class OC_Theme {
 	public function getLongFooter() {
 		${D}l10n = ${D}this->getL10n();
 		${D}footer = '© ${THEME_YEAR} <a href="'.${D}this->getBaseUrl().'" target="_blank\">'.${D}this->getEntity().'</a>'.
-			'<br/>' . $this->getSlogan();
+			'<br/>' . ${D}this->getSlogan();
 		if (${D}this->getImprintUrl() !== '') {
 			${D}footer .= '<span class="nowrap"> | <a href="' . ${D}this->getImprintUrl() . '" target="_blank">' . ${D}l10n->t('Imprint') . '</a></span>';
 		}
