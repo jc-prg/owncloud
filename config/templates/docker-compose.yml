@@ -29,7 +29,7 @@ services:
     volumes:
       - ${DIR_DATA}:/var/www/html/data
       - ${DIR_HTML}:/var/www/html
-      - ${MAIN_DIR}/config/php-info:/var/www/html/info
+#      - ${MAIN_DIR}/config/php-info:/var/www/html/info
       - ${MAIN_DIR}/config/themes/jc-cloud-theme:/var/www/html/apps/jc-cloud-theme
 
     depends_on:

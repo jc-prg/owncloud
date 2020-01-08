@@ -52,7 +52,7 @@ $ docker-compose up -d
 * add jc-cloud-theme if wanted
   * go to app settings when logged in as admin
   * go to deactivated apps and activate "jc-cloud-theme"
-  * deactive integrity check in oc-data/html/config/config.php
+  * deactive integrity check in oc-data/html/config/config.php (as it's a private theme)
 
 ```php  
   'integrity.ignore.missing.app.signature' => [
