@@ -8,13 +8,13 @@ My configuration to run an up-to-date owncloud on RPI ...
 
 If you want to use this, please check exactly if it helps for your purpose. No guarantee!
 
-## Thanks to ...
+## Thanks to the authors of ...
 
 This configuration is based on:
 
 * Docker Image for MariaDB used from: [blepiolot/rpi-mariadb](https://ssi.le-piolot.fr/running-owncloud-w-ssl-in-a-raspberry-pi-docker-container/)
 * Docker Image for owncloud based on: https://github.com/docker-library/owncloud
-* Image rotation for login screen: http://www.marcofolio.net/ (images by C. Kloth)
+* Image rotation for login screen: http://www.marcofolio.net/
 
 ## Setup
 

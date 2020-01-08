@@ -21,6 +21,12 @@ rm -rf ../start_owncloud
 envsubst < "templates/start_owncloud" > "../start_owncloud"
 chmod 755 ../start_owncloud
 
+rm -rf themes/jc-cloud-theme/defaults.php
+envsubst < "templates/theme-defaults.php" > "themes/jc-cloud-theme/defaults.php"
+
+rm -rf themes/jc-cloud-theme/core/css/styles.css
+envsubst < "templates/theme-styles.css" > "themes/jc-cloud-theme/core/css/styles.css"
+
 cd ..
 
 sudo mkdir $MAIN_DIR_DATA

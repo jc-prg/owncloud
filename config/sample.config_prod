@@ -24,6 +24,14 @@ export SERVER_URL="localhost"
 export DOCKER_CLIENT="owncloud_$CURRENT_STAGE"
 export DOCKER_DATABASE="oc_mariadb_$CURRENT_STAGE"
 
+# Owncloud theme parameter
+export THEME_TITLE="owncloud ($CURRENT_STAGE)"
+export THEME_NAME="owncloud"
+export THEME_URL="https://example.com/"
+export THEME_SLOGAN="My owncloud ..."
+export THEME_HEADER_COLOR="#000066"
+export THEME_BACKGROUND_IMAGE="../start/rotate.php"
+
 # usb-device for RPI (to be mounted)
 export EXTERNAL_DRIVE="/dev/sda1"	# leave empty, if not used
 export EXTERNAL_MOUNT="/media/usb"
