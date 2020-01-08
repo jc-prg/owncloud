@@ -120,22 +120,22 @@ class OC_Theme {
 
 	public function getPrivacyPolicyUrl() {
 		try {
-			return \OC::$server->getConfig()->getAppValue('core', 'legal.privacy_policy_url', '');
-		} catch (\Exception $e) {
+			return \OC::${D}server->getConfig()->getAppValue('core', 'legal.privacy_policy_url', '');
+		} catch (\Exception ${D}e) {
 			return '';
 		}
 	}
 	
 	public function getImprintUrl() {
 		try {
-			return \OC::$server->getConfig()->getAppValue('core', 'legal.imprint_url', '');
-		} catch (\Exception $e) {
+			return \OC::${D}server->getConfig()->getAppValue('core', 'legal.imprint_url', '');
+		} catch (\Exception ${D}e) {
 			return '';
 		}
 	}
 
 	public function getL10n() {
-		return \OC::$server->getL10N('core');
+		return \OC::${D}server->getL10N('core');
 	}
 	
 	/**
@@ -143,17 +143,17 @@ class OC_Theme {
 	 * @return string short footer
 	 */
 	public function getShortFooter() {
-		$l10n = $this->getL10n();
-		$footer = '© ${THEME_YEAR} <a href="'.$this->getBaseUrl().'" target="_blank\">'.$this->getEntity().'</a>'.
-			'<br/>' . $this->getSlogan();
-		if ($this->getImprintUrl() !== '') {
-			$footer .= '<span class="nowrap"> | <a href="' . $this->getImprintUrl() . '" target="_blank">' . $l10n->t('Imprint') . '</a></span>';
+		${D}l10n = ${D}this->getL10n();
+		${D}footer = '© ${THEME_YEAR} <a href="'.${D}this->getBaseUrl().'" target="_blank\">'.${D}this->getEntity().'</a>'.
+			'<br/>' . ${D}this->getSlogan();
+		if (${D}this->getImprintUrl() !== '') {
+			${D}footer .= '<span class="nowrap"> | <a href="' . ${D}this->getImprintUrl() . '" target="_blank">' . ${D}l10n->t('Imprint') . '</a></span>';
 		}
 
-		if ($this->getPrivacyPolicyUrl() !== '') {
-			$footer .= '<span class="nowrap"> | <a href="'. $this->getPrivacyPolicyUrl() .'" target="_blank">'. $l10n->t('Privacy Policy')	 .'</a></span>';
+		if (${D}this->getPrivacyPolicyUrl() !== '') {
+			${D}footer .= '<span class="nowrap"> | <a href="'. ${D}this->getPrivacyPolicyUrl() .'" target="_blank">'. ${D}l10n->t('Privacy Policy')	 .'</a></span>';
 		}
-		return $footer;
+		return ${D}footer;
 	}
 
 	/**
@@ -161,21 +161,21 @@ class OC_Theme {
 	 * @return string long footer
 	 */
 	public function getLongFooter() {
-		$l10n = $this->getL10n();
-		$footer = '© ${THEME_YEAR} <a href="'.$this->getBaseUrl().'" target="_blank\">'.$this->getEntity().'</a>'.
+		${D}l10n = ${D}this->getL10n();
+		${D}footer = '© ${THEME_YEAR} <a href="'.${D}this->getBaseUrl().'" target="_blank\">'.${D}this->getEntity().'</a>'.
 			'<br/>' . $this->getSlogan();
-		if ($this->getImprintUrl() !== '') {
-			$footer .= '<span class="nowrap"> | <a href="' . $this->getImprintUrl() . '" target="_blank">' . $l10n->t('Imprint') . '</a></span>';
+		if (${D}this->getImprintUrl() !== '') {
+			$footer .= '<span class="nowrap"> | <a href="' . ${D}this->getImprintUrl() . '" target="_blank">' . ${D}l10n->t('Imprint') . '</a></span>';
 		}
 
-		if ($this->getPrivacyPolicyUrl() !== '') {
-			$footer .= '<span class="nowrap"> | <a href="'. $this->getPrivacyPolicyUrl() .'" target="_blank">'. $l10n->t('Privacy Policy') .'</a></span>';
+		if (${D}this->getPrivacyPolicyUrl() !== '') {
+			${D}footer .= '<span class="nowrap"> | <a href="'. ${D}this->getPrivacyPolicyUrl() .'" target="_blank">'. ${D}l10n->t('Privacy Policy') .'</a></span>';
 		}
-		return $footer;
+		return ${D}footer;
 	}
 
-	public function buildDocLinkToKey($key) {
-		return $this->getDocBaseUrl() . '/server/10.0/go.php?to=' . $key;
+	public function buildDocLinkToKey(${D}key) {
+		return ${D}this->getDocBaseUrl() . '/server/10.0/go.php?to=' . ${D}key;
 	}
 
 
