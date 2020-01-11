@@ -60,10 +60,12 @@ $ docker-compose up -d
   ],
 ```
   
+* configure **proxy** including https (e.g. nginx, not part of this configuration)
+  * ensure that upload of big files work: ```client_max_body_size 513m;```
+  * set Strict-Transport-Security: ```add_header Strict-Transport-Security max-age=15552000;```
+
 
 * additional configurations to be done ...
-  * change trusted domains in config/config.php
   * add commands from maintain/crontab.info to your crontab
-  * configure proxy including https (e.g. nginx, not part of this configuration)
 
 
