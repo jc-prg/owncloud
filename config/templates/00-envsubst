@@ -18,8 +18,8 @@ rm -rf ../maintain/crontab.info
 envsubst < "templates/crontab.info" > "../maintain/crontab.info"
 
 rm -rf ../start_owncloud
-envsubst < "templates/start_owncloud" > "../start_owncloud"
-chmod 755 ../start_owncloud
+envsubst < "templates/start_owncloud" > "../start"
+chmod 755 ../start
 
 rm -rf themes/jc-cloud-theme/defaults.php
 envsubst < "templates/theme-defaults.php" > "themes/jc-cloud-theme/defaults.php"

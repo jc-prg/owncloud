@@ -9,7 +9,7 @@ ARG OWNCLOUD_SHA256
 RUN env
 
 # install required software
-RUN apt-get update && apt-get upgrade
+RUN apt-get update && apt-get -y upgrade
 RUN apt-get install -y --no-install-recommends \
                 bzip2 \
                 gnupg dirmngr \
